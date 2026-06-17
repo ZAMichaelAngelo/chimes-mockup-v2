@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chimes Crane Hire — Gauteng's Trusted Crane Hire Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #279042;
+      --green-dark: #1f7635;
+      --navy: #16335E;
+      --navy-dark: #0d2040;
+      --yellow: #FFB400;
+      --white: #ffffff;
+      --off-white: #f7f7f6;
+      --grey: #e8e8e6;
+      --text: #1a1a1a;
+      --muted: #5a5a5a;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; }
+
+    /* ── NAV ── */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: box-shadow .3s;
+    }
+    #hdr.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.10); }
+    .nav-wrap {
+      max-width: 1380px; margin: 0 auto; padding: 0 32px;
+      height: 70px; display: flex; align-items: center; gap: 36px;
+    }
+    .logo-link { flex-shrink: 0; display: flex; align-items: center; text-decoration: none; }
+    .logo-link img { height: 36px; width: auto; }
+    .nav-links { flex: 1; display: flex; justify-content: center; gap: 2px; }
+    .nav-links a {
+      font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--text); text-decoration: none; padding: 8px 13px;
+      border-bottom: 2px solid transparent; transition: color .2s, border-color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); border-bottom-color: var(--green); }
+    .nav-ctas { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-out {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 9px 18px; border: 2px solid var(--navy); color: var(--navy);
+      background: transparent; text-decoration: none; transition: all .2s; white-space: nowrap;
+    }
+    .btn-out:hover { background: var(--navy); color: #fff; }
+    .btn-fill {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 9px 18px; background: var(--navy); color: #fff;
+      text-decoration: none; transition: background .2s; white-space: nowrap;
+    }
+    .btn-fill:hover { background: var(--navy-dark); }
+    .hbg { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; height: 100vh; min-height: 580px; max-height: 920px;
+      background-size: cover; background-position: center; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to right,
+        rgba(255,255,255,.97) 0%,
+        rgba(255,255,255,.88) 34%,
+        rgba(255,255,255,.45) 54%,
+        rgba(255,255,255,0) 72%);
+    }
+    .hero-cnt {
+      position: relative; z-index: 2; width: 100%;
+      max-width: 1380px; margin: 0 auto; padding: 0 32px; padding-top: 70px;
+    }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 14px; display: block;
+    }
+    .hero h1 {
+      font-family: 'Archivo', sans-serif; font-size: clamp(38px, 5vw, 70px);
+      font-weight: 800; line-height: 1.04; color: var(--navy);
+      max-width: 580px; margin-bottom: 22px;
+    }
+    .hero p {
+      font-size: 16px; line-height: 1.65; color: #333;
+      max-width: 480px; margin-bottom: 34px;
+    }
+    .btn-hero {
+      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 14px 30px;
+      background: var(--navy); color: #fff; text-decoration: none; transition: background .2s;
+    }
+    .btn-hero:hover { background: var(--navy-dark); }
+
+    /* ── TICKER ── */
+    .ticker { background: var(--green); height: 42px; overflow: hidden; display: flex; align-items: center; }
+    .ticker-track {
+      display: flex; white-space: nowrap;
+      animation: tick 38s linear infinite;
+    }
+    .ticker-track span {
+      font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.9); padding: 0 28px;
+    }
+    .ticker-track span.sep { color: rgba(255,255,255,.35); padding: 0 2px; }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── STATS ── */
+    .stats { background: var(--navy); padding: 52px 32px; }
+    .stats-grid {
+      max-width: 1380px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    .stat {
+      text-align: center; padding: 20px 16px;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Archivo', sans-serif; font-size: clamp(34px, 4vw, 58px);
+      font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-l {
+      font-size: 12px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: rgba(255,255,255,.55);
+    }
+
+    /* ── SECTION BASE ── */
+    .sec { padding: 96px 32px; }
+    .sec-inner { max-width: 1380px; margin: 0 auto; }
+    .sec-hd { margin-bottom: 52px; }
+    .sec-hd h2 {
+      font-family: 'Archivo', sans-serif; font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800; color: var(--navy); line-height: 1.1; margin-bottom: 14px;
+    }
+    .sec-hd p { font-size: 16px; color: var(--muted); max-width: 540px; line-height: 1.65; }
+
+    /* ── SERVICES ── */
+    .svc-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      border: 1px solid var(--grey);
+    }
+    .svc-card {
+      padding: 38px 28px; border-right: 1px solid var(--grey);
+      transition: background .2s;
+    }
+    .svc-card:last-child { border-right: none; }
+    .svc-card:hover { background: var(--off-white); }
+    .svc-ico { width: 44px; height: 44px; color: var(--green); margin-bottom: 22px; }
+    .svc-card h3 {
+      font-family: 'Archivo', sans-serif; font-size: 17px; font-weight: 800;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .svc-card p { font-size: 13.5px; line-height: 1.65; color: var(--muted); margin-bottom: 22px; }
+    .clink {
+      font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      color: var(--green); text-decoration: none;
+    }
+    .clink:hover { text-decoration: underline; }
+
+    /* ── FLEET ── */
+    .fleet-bg { background: var(--off-white); }
+    .fleet-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+    }
+    .fl-card {
+      background: #fff; border: 1px solid var(--grey);
+      overflow: hidden; transition: transform .25s, box-shadow .25s;
+    }
+    .fl-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.1); }
+    .fl-img {
+      height: 190px; background-size: cover; background-position: center;
+      position: relative;
+    }
+    .fl-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(22,51,94,.55) 0%, transparent 55%);
+    }
+    .fl-tag {
+      position: absolute; bottom: 10px; left: 10px; z-index: 1;
+      background: var(--yellow); color: var(--navy);
+      font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 4px 9px;
+    }
+    .fl-tag.new { background: var(--green); color: #fff; }
+    .fl-body { padding: 18px 20px 22px; }
+    .fl-body h3 {
+      font-family: 'Archivo', sans-serif; font-size: 16px; font-weight: 800;
+      color: var(--navy); margin-bottom: 3px;
+    }
+    .fl-cap {
+      font-size: 12px; font-weight: 700; color: var(--green);
+      text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px;
+    }
+    .fl-body p { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-bottom: 14px; }
+
+    /* ── FULL BLEED LIFT ── */
+    .lift-band {
+      position: relative; height: 480px;
+      background-size: cover; background-position: center top;
+      display: flex; align-items: center;
+    }
+    .lift-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right,
+        rgba(22,51,94,.90) 0%, rgba(22,51,94,.60) 50%, rgba(22,51,94,.15) 100%);
+    }
+    .lift-cnt {
+      position: relative; z-index: 1; width: 100%;
+      max-width: 1380px; margin: 0 auto; padding: 0 32px;
+    }
+    .lift-cnt .eyebrow { color: var(--yellow); }
+    .lift-cnt h2 {
+      font-family: 'Archivo', sans-serif; font-size: clamp(28px, 3.5vw, 50px);
+      font-weight: 800; color: #fff; line-height: 1.1; max-width: 520px; margin-bottom: 18px;
+    }
+    .lift-cnt p {
+      font-size: 15px; color: rgba(255,255,255,.78);
+      max-width: 460px; line-height: 1.65; margin-bottom: 30px;
+    }
+    .btn-wht {
+      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 13px 28px;
+      background: #fff; color: var(--navy); text-decoration: none; transition: background .2s;
+    }
+    .btn-wht:hover { background: var(--yellow); }
+
+    /* ── INDUSTRIES ── */
+    .ind-grid {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      border: 1px solid var(--grey);
+    }
+    .ind-item {
+      padding: 36px 20px; text-align: center; border-right: 1px solid var(--grey);
+      transition: background .2s; cursor: default;
+    }
+    .ind-item:last-child { border-right: none; }
+    .ind-item:hover { background: var(--navy); }
+    .ind-item:hover .ind-ico { color: var(--yellow); }
+    .ind-item:hover .ind-nm { color: #fff; }
+    .ind-ico { width: 36px; height: 36px; color: var(--navy); margin: 0 auto 14px; transition: color .2s; }
+    .ind-nm {
+      font-size: 12px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--text); transition: color .2s;
+    }
+
+    /* ── ABOUT ── */
+    .about-sec { background: var(--navy); padding: 96px 32px; }
+    .about-inner {
+      max-width: 1380px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-txt .eyebrow { color: var(--yellow); }
+    .about-txt h2 {
+      font-family: 'Archivo', sans-serif; font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 18px;
+    }
+    .about-txt p { font-size: 15px; color: rgba(255,255,255,.7); line-height: 1.8; margin-bottom: 16px; }
+    .vals {
+      list-style: none; display: flex; flex-wrap: wrap; gap: 8px;
+      margin: 26px 0 34px;
+    }
+    .vals li {
+      font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      background: var(--yellow); color: var(--navy); padding: 6px 13px;
+    }
+    .btn-grn {
+      display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 13px 28px;
+      background: var(--green); color: #fff; text-decoration: none; transition: background .2s;
+    }
+    .btn-grn:hover { background: var(--green-dark); }
+    .bee {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+      border: 1px solid rgba(255,255,255,.15); padding: 8px 16px;
+    }
+    .bee span {
+      font-size: 11px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.65);
+    }
+    .about-img { position: relative; }
+    .about-img::before {
+      content: ''; position: absolute;
+      inset: -14px -14px 14px 14px;
+      border: 2px solid rgba(255,255,255,.12); z-index: 0;
+    }
+    .about-img img {
+      position: relative; z-index: 1; width: 100%; height: 500px;
+      object-fit: cover; object-position: center; display: block;
+    }
+
+    /* ── QUOTE CTA ── */
+    .cta-sec { background: var(--green); padding: 96px 32px; }
+    .cta-inner {
+      max-width: 1380px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+    }
+    .cta-txt .eyebrow { color: rgba(255,255,255,.65); }
+    .cta-txt h2 {
+      font-family: 'Archivo', sans-serif; font-size: clamp(26px, 3vw, 42px);
+      font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 14px;
+    }
+    .cta-txt p { font-size: 15px; color: rgba(255,255,255,.78); line-height: 1.65; margin-bottom: 28px; }
+    .cta-contact { display: flex; flex-direction: column; gap: 12px; }
+    .cta-contact a {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; font-size: 14px; color: rgba(255,255,255,.85); transition: color .2s;
+    }
+    .cta-contact a.big { font-size: 18px; font-weight: 700; color: #fff; }
+    .cta-contact a:hover { color: var(--yellow); }
+    .form { display: flex; flex-direction: column; gap: 14px; }
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .f-field { display: flex; flex-direction: column; gap: 5px; }
+    .f-field label {
+      font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: rgba(255,255,255,.7);
+    }
+    .f-field input, .f-field select, .f-field textarea {
+      padding: 11px 14px; background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.28); color: #fff;
+      font-family: 'Barlow', sans-serif; font-size: 14px; outline: none;
+      transition: border-color .2s;
+    }
+    .f-field input::placeholder, .f-field textarea::placeholder { color: rgba(255,255,255,.45); }
+    .f-field input:focus, .f-field select:focus, .f-field textarea:focus { border-color: #fff; }
+    .f-field select option { background: #279042; }
+    .f-field textarea { resize: vertical; min-height: 88px; }
+    .btn-sub {
+      font-family: 'Barlow', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 13px 30px; background: var(--navy); color: #fff;
+      border: none; cursor: pointer; align-self: flex-start; transition: background .2s;
+    }
+    .btn-sub:hover { background: var(--navy-dark); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-dark); padding: 72px 32px 36px; }
+    .ft-inner { max-width: 1380px; margin: 0 auto; }
+    .ft-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 56px; margin-bottom: 56px;
+    }
+    .ft-brand img { height: 32px; margin-bottom: 18px; filter: brightness(0) invert(1); }
+    .ft-brand p {
+      font-size: 13px; color: rgba(255,255,255,.45);
+      line-height: 1.7; margin-bottom: 22px; max-width: 260px;
+    }
+    .ft-social { display: flex; gap: 10px; }
+    .ft-social a {
+      width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.18);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); text-decoration: none; transition: all .2s;
+    }
+    .ft-social a:hover { border-color: var(--green); color: var(--green); }
+    .ft-col h5 {
+      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(255,255,255,.35); margin-bottom: 18px;
+    }
+    .ft-col ul { list-style: none; }
+    .ft-col li { margin-bottom: 9px; }
+    .ft-col a {
+      font-size: 13px; color: rgba(255,255,255,.58);
+      text-decoration: none; transition: color .2s;
+    }
+    .ft-col a:hover { color: #fff; }
+    .ft-ci { display: flex; align-items: flex-start; gap: 9px; margin-bottom: 11px; }
+    .ft-ci svg { flex-shrink: 0; color: var(--green); margin-top: 1px; }
+    .ft-ci span { font-size: 13px; color: rgba(255,255,255,.58); line-height: 1.5; }
+    .ft-bot {
+      border-top: 1px solid rgba(255,255,255,.07); padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .ft-bot p { font-size: 12px; color: rgba(255,255,255,.3); }
+    .ft-vals {
+      font-size: 11px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.22);
+    }
+    .ft-vals b { color: rgba(255,255,255,.45); font-weight: 700; }
+
+    /* ── ANIMATIONS ── */
+    .fu { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+    .fu.vis { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1060px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; align-items: flex-start;
+        position: absolute; top: 70px; left: 0; right: 0;
+        background: #fff; padding: 16px 24px 24px;
+        border-bottom: 1px solid var(--grey);
+      }
+      .hbg { display: block; margin-left: auto; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat { border-bottom: 1px solid rgba(255,255,255,.08); }
+      .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+      .svc-grid { grid-template-columns: repeat(2,1fr); }
+      .svc-card:nth-child(2) { border-right: none; }
+      .svc-card:nth-child(3) { border-top: 1px solid var(--grey); }
+      .fleet-grid { grid-template-columns: repeat(2,1fr); }
+      .ind-grid { grid-template-columns: repeat(3,1fr); }
+      .ind-item:nth-child(3) { border-right: none; }
+      .ind-item:nth-child(4), .ind-item:nth-child(5) { border-top: 1px solid var(--grey); }
+      .ind-item:nth-child(5) { border-right: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+      .ft-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .nav-ctas .btn-out { display: none; }
+      .fleet-grid { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-card { border-right: none !important; border-top: 1px solid var(--grey); }
+      .svc-card:first-child { border-top: none; }
+      .ind-grid { grid-template-columns: repeat(2,1fr); }
+      .f-row { grid-template-columns: 1fr; }
+      .ft-top { grid-template-columns: 1fr; gap: 32px; }
+      .ft-bot { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="hdr">
+  <div class="nav-wrap">
+    <a href="#" class="logo-link">
+      <img src="Logos/Official_Chimes_Extended_Logo.png" alt="Chimes Crane Hire">
+    </a>
+    <button class="hbg" id="hbg" aria-label="Menu">
+      <svg width="22" height="15" viewBox="0 0 22 15" fill="none">
+        <rect y="0" width="22" height="2.5" rx="1" fill="#16335E"/>
+        <rect y="6" width="22" height="2.5" rx="1" fill="#16335E"/>
+        <rect y="12" width="22" height="2.5" rx="1" fill="#16335E"/>
+      </svg>
+    </button>
+    <nav class="nav-links" id="nav">
+      <a href="#" class="active">Home</a>
+      <a href="#fleet">Crane Fleet</a>
+      <a href="#services">Services</a>
+      <a href="#about">Who We Are</a>
+      <a href="#contact">Get In Touch</a>
+    </nav>
+    <div class="nav-ctas">
+      <a href="tel:+27116261110" class="btn-out">+27 11 626 1110</a>
+      <a href="#contact" class="btn-fill">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%231.png');">
+  <div class="hero-cnt">
+    <span class="eyebrow">Chimes Crane Hire &middot; Gauteng &middot; Est. 2003</span>
+    <h1>Gauteng's Trusted<br>Crane Hire Experts.</h1>
+    <p>From 25 to 400 tons, we streamline operations, reduce risk &amp; avoid delays — with certified operators and expert rigging teams on every lift.</p>
+    <a href="#contact" class="btn-hero">Hire a Crane</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Loyalty</span><span class="sep">&middot;</span>
+    <span>Integrity</span><span class="sep">&middot;</span>
+    <span>Foresight</span><span class="sep">&middot;</span>
+    <span>Excellence</span><span class="sep">&middot;</span>
+    <span>Cranes 4 Life</span><span class="sep">&middot;</span>
+    <span>Gauteng's Trusted Crane Hire</span><span class="sep">&middot;</span>
+    <span>Est. 2003</span><span class="sep">&middot;</span>
+    <span>BEE Level 4</span><span class="sep">&middot;</span>
+    <span>25&ndash;400 Tons</span><span class="sep">&middot;</span>
+    <span>24/7 Service</span><span class="sep">&middot;</span>
+    <span>Loyalty</span><span class="sep">&middot;</span>
+    <span>Integrity</span><span class="sep">&middot;</span>
+    <span>Foresight</span><span class="sep">&middot;</span>
+    <span>Excellence</span><span class="sep">&middot;</span>
+    <span>Cranes 4 Life</span><span class="sep">&middot;</span>
+    <span>Gauteng's Trusted Crane Hire</span><span class="sep">&middot;</span>
+    <span>Est. 2003</span><span class="sep">&middot;</span>
+    <span>BEE Level 4</span><span class="sep">&middot;</span>
+    <span>25&ndash;400 Tons</span><span class="sep">&middot;</span>
+    <span>24/7 Service</span><span class="sep">&middot;</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat fu">
+      <div class="stat-n" data-to="23">0</div>
+      <div class="stat-l">Years in Business</div>
+    </div>
+    <div class="stat fu">
+      <div class="stat-n">400T</div>
+      <div class="stat-l">Max Lifting Capacity</div>
+    </div>
+    <div class="stat fu">
+      <div class="stat-n" data-to="24">0</div>
+      <div class="stat-l">Crane Fleet Units</div>
+    </div>
+    <div class="stat fu">
+      <div class="stat-n">24/7</div>
+      <div class="stat-l">Dedicated Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="sec-inner">
+    <div class="sec-hd fu">
+      <span class="eyebrow">What We Do</span>
+      <h2>Complete lifting solutions<br>for every project.</h2>
+      <p>From short-term crane hire to full turnkey project management — we handle the lift so you can focus on the work.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card fu">
+        <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="36" width="40" height="6" rx="1"/>
+          <line x1="12" y1="36" x2="12" y2="10"/>
+          <line x1="12" y1="10" x2="38" y2="10"/>
+          <line x1="38" y1="10" x2="38" y2="24"/>
+          <line x1="26" y1="24" x2="38" y2="24"/>
+          <line x1="26" y1="10" x2="26" y2="36"/>
+          <line x1="26" y1="20" x2="36" y2="24"/>
+        </svg>
+        <h3>Mobile Crane Hire</h3>
+        <p>Short and long-term wet hire of all-terrain cranes from 25 to 400 tons. Certified operators included on every booking.</p>
+        <a class="clink" href="#fleet">View Fleet &rarr;</a>
+      </div>
+      <div class="svc-card fu">
+        <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6 L24 18 M18 12 L24 6 L30 12"/>
+          <line x1="24" y1="18" x2="24" y2="42"/>
+          <path d="M14 28 L24 24 L34 28"/>
+          <ellipse cx="24" cy="42" rx="8" ry="3"/>
+        </svg>
+        <h3>Rigging Services</h3>
+        <p>Expert rigging with CAD lift planning, load testing, and full safety compliance. Our certified riggers handle every critical connection.</p>
+        <a class="clink" href="#contact">Get a Quote &rarr;</a>
+      </div>
+      <div class="svc-card fu">
+        <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="28" width="14" height="14" rx="1"/>
+          <rect x="28" y="28" width="14" height="14" rx="1"/>
+          <path d="M10 28 L10 18 L24 10 L38 18 L38 28"/>
+          <line x1="10" y1="10" x2="38" y2="10"/>
+          <line x1="18" y1="42" x2="18" y2="32"/>
+          <line x1="30" y1="42" x2="30" y2="32"/>
+        </svg>
+        <h3>Heavy Lifting</h3>
+        <p>Tandem lifts, abnormal load operations, and precision heavy lifting for construction, mining, and industrial projects.</p>
+        <a class="clink" href="#contact">Discuss a Project &rarr;</a>
+      </div>
+      <div class="svc-card fu">
+        <svg class="svc-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="6" width="36" height="36" rx="2"/>
+          <polyline points="15,24 22,31 33,17"/>
+        </svg>
+        <h3>Turnkey Projects</h3>
+        <p>Full project management from planning and scheduling to execution and handover. One contact, complete accountability.</p>
+        <a class="clink" href="#contact">Talk to Us &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="sec fleet-bg" id="fleet">
+  <div class="sec-inner">
+    <div class="sec-hd fu">
+      <span class="eyebrow">Our Fleet</span>
+      <h2>Liebherr all-terrain cranes.<br>Built for every lift.</h2>
+      <p>Our fleet is maintained to OEM specifications with full inspection records. Available on wet hire with trained, certified operators.</p>
+    </div>
+    <div class="fleet-grid">
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/CCH2.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 40G-2</h3>
+          <div class="fl-cap">40 Ton Capacity</div>
+          <p>Compact 2-axle all-terrain crane. Ideal for urban sites and access-restricted environments.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/c8.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 50G-3</h3>
+          <div class="fl-cap">50 Ton Capacity</div>
+          <p>Versatile 3-axle all-terrain crane. A dependable workhorse for mid-sized construction and industrial lifts.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/C5%20(new%20crane)%20image.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 70G-4</h3>
+          <div class="fl-cap">70 Ton Capacity</div>
+          <p>4-axle crane with extended boom reach and high load charts. Suited for construction and industrial projects.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/Ultra%20%231.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 90G-4</h3>
+          <div class="fl-cap">90 Ton Capacity</div>
+          <p>High-capacity 4-axle crane for demanding lifts. Excellent boom and jib configurations for complex operations.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%232.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 110G-5</h3>
+          <div class="fl-cap">110 Ton Capacity</div>
+          <p>5-axle mid-range all-terrain crane. Proven performer across petrochemical, mining, and heavy construction.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%233.png');">
+          <span class="fl-tag">All Terrain</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 130G-5</h3>
+          <div class="fl-cap">130 Ton Capacity</div>
+          <p>Powerful 5-axle crane with exceptional boom reach. Built for critical industrial and petrochemical applications.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/crane%20LBBD%20%231.png');">
+          <span class="fl-tag">Heavy Lift</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 220G-5</h3>
+          <div class="fl-cap">220 Ton Capacity</div>
+          <p>Our flagship 220-ton all-terrain crane. Handles the most demanding lifts across South Africa's biggest projects.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+      <div class="fl-card fu">
+        <div class="fl-img" style="background-image:url('Cinematic%20Images/BARLOW%20pic%20%231.png'); background-position: left center;">
+          <span class="fl-tag new">New Addition</span>
+        </div>
+        <div class="fl-body">
+          <h3>Liebherr ATF 400G-6</h3>
+          <div class="fl-cap">400 Ton Capacity</div>
+          <p>6-axle mega-lift crane for the largest jobs. Tandem lifts, abnormal loads, and Gauteng's most complex operations.</p>
+          <a class="clink" href="#contact">Check Availability &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAM FULL BLEED -->
+<div class="lift-band" style="background-image:url('Cinematic%20Images/Chimes%20Team%20%231.png');">
+  <div class="lift-cnt">
+    <span class="eyebrow">Our People</span>
+    <h2>Trained operators.<br>Every time, every lift.</h2>
+    <p>Every Chimes crane comes with a certified operator, rigger, and safety officer. We don't just hire equipment — we deliver complete lifting solutions, safely and on time.</p>
+    <a href="#about" class="btn-wht">Who We Are</a>
+  </div>
+</div>
+
+<!-- INDUSTRIES -->
+<section class="sec" id="industries">
+  <div class="sec-inner">
+    <div class="sec-hd fu">
+      <span class="eyebrow">Industries We Serve</span>
+      <h2>Built for the work.</h2>
+      <p>From Gauteng construction sites to petrochemical plants and renewable energy installations — Chimes cranes keep South Africa moving.</p>
+    </div>
+    <div class="ind-grid fu">
+      <div class="ind-item">
+        <svg class="ind-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <rect x="4" y="30" width="32" height="7" rx="1"/>
+          <rect x="8" y="20" width="10" height="10"/>
+          <rect x="22" y="13" width="14" height="17"/>
+          <line x1="22" y1="30" x2="22" y2="13"/>
+        </svg>
+        <div class="ind-nm">Construction</div>
+      </div>
+      <div class="ind-item">
+        <svg class="ind-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="20" cy="20" r="6"/>
+          <line x1="20" y1="5" x2="20" y2="14"/>
+          <line x1="20" y1="26" x2="20" y2="35"/>
+          <line x1="5" y1="20" x2="14" y2="20"/>
+          <line x1="26" y1="20" x2="35" y2="20"/>
+          <line x1="8.5" y1="8.5" x2="14.7" y2="14.7"/>
+          <line x1="25.3" y1="25.3" x2="31.5" y2="31.5"/>
+          <line x1="31.5" y1="8.5" x2="25.3" y2="14.7"/>
+          <line x1="14.7" y1="25.3" x2="8.5" y2="31.5"/>
+        </svg>
+        <div class="ind-nm">Mining</div>
+      </div>
+      <div class="ind-item">
+        <svg class="ind-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="30" r="5"/>
+          <circle cx="29" cy="30" r="5"/>
+          <line x1="11" y1="25" x2="11" y2="8"/>
+          <line x1="29" y1="25" x2="29" y2="14"/>
+          <line x1="11" y1="8" x2="29" y2="8"/>
+          <path d="M11 14 L20 10 L29 14"/>
+        </svg>
+        <div class="ind-nm">Petrochemical</div>
+      </div>
+      <div class="ind-item">
+        <svg class="ind-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="20" y1="5" x2="20" y2="35"/>
+          <line x1="5" y1="20" x2="35" y2="20"/>
+          <line x1="9" y1="9" x2="31" y2="31"/>
+          <line x1="31" y1="9" x2="9" y2="31"/>
+          <circle cx="20" cy="20" r="4"/>
+        </svg>
+        <div class="ind-nm">Telecoms</div>
+      </div>
+      <div class="ind-item">
+        <svg class="ind-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="20" y1="35" x2="20" y2="14"/>
+          <line x1="13" y1="20" x2="20" y2="14"/>
+          <line x1="27" y1="20" x2="20" y2="14"/>
+          <line x1="9" y1="29" x2="13" y2="23"/>
+          <line x1="31" y1="29" x2="27" y2="23"/>
+          <ellipse cx="20" cy="35" rx="11" ry="3"/>
+        </svg>
+        <div class="ind-nm">Renewable Energy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="about-inner">
+    <div class="about-txt fu">
+      <span class="eyebrow">Who We Are</span>
+      <h2>Owner-managed.<br>Operator trusted.</h2>
+      <p>Founded in 2003 by Paul Chimes and Elias Nyathi, Chimes Crane Hire brings over two decades of lifting expertise to every project. Before Chimes, the founders helped build Beacon Crane Hire into one of South Africa's most respected names — subsequently sold to a listed company in 1997.</p>
+      <p>Today, we operate from our Germiston yard in Johannesburg, serving clients across Gauteng with a modern Liebherr fleet and a team of certified operators who live by our founding values.</p>
+      <ul class="vals">
+        <li>Loyalty</li>
+        <li>Integrity</li>
+        <li>Foresight</li>
+        <li>Excellence</li>
+      </ul>
+      <a href="#contact" class="btn-grn">Get In Touch</a>
+      <div class="bee">
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="#FFB400">
+          <path d="M10 2L12.4 7.2L18 8L14 11.8L15.1 17.4L10 14.7L4.9 17.4L6 11.8L2 8L7.6 7.2Z"/>
+        </svg>
+        <span>BEE Level 4 Contributor</span>
+      </div>
+    </div>
+    <div class="about-img fu">
+      <img src="Cinematic%20Images/Chimes%20Team%20%231.png" alt="The Chimes Crane Hire team at work">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / QUOTE -->
+<section class="cta-sec" id="contact">
+  <div class="cta-inner">
+    <div class="cta-txt fu">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Ready to lift?<br>Let's talk.</h2>
+      <p>Tell us about your project and we'll respond within the hour during business hours. For urgent site requirements, call us directly.</p>
+      <div class="cta-contact">
+        <a href="tel:+27116261110" class="big">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/>
+          </svg>
+          +27 11 626 1110
+        </a>
+        <a href="mailto:office@chimes.co.za">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+          office@chimes.co.za
+        </a>
+        <a href="https://maps.google.com/?q=Nasmith+Avenue+Jupiter+Industrial+Germiston" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          Nasmith Ave, Jupiter Industrial, Germiston
+        </a>
+      </div>
+    </div>
+    <div class="fu">
+      <form class="form" onsubmit="handleForm(event)">
+        <div class="f-row">
+          <div class="f-field">
+            <label for="nm">Full Name</label>
+            <input type="text" id="nm" name="name" placeholder="Your name" required>
+          </div>
+          <div class="f-field">
+            <label for="co">Company</label>
+            <input type="text" id="co" name="company" placeholder="Company name">
+          </div>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label for="ph">Phone</label>
+            <input type="tel" id="ph" name="phone" placeholder="+27 xx xxx xxxx" required>
+          </div>
+          <div class="f-field">
+            <label for="em">Email</label>
+            <input type="email" id="em" name="email" placeholder="you@company.co.za" required>
+          </div>
+        </div>
+        <div class="f-field">
+          <label for="cr">Crane Required</label>
+          <select id="cr" name="crane">
+            <option value="">Select capacity...</option>
+            <option>40 Ton &ndash; ATF 40G-2</option>
+            <option>50 Ton &ndash; ATF 50G-3</option>
+            <option>70 Ton &ndash; ATF 70G-4</option>
+            <option>90 Ton &ndash; ATF 90G-4</option>
+            <option>110 Ton &ndash; ATF 110G-5</option>
+            <option>130 Ton &ndash; ATF 130G-5</option>
+            <option>220 Ton &ndash; ATF 220G-5</option>
+            <option>400 Ton &ndash; ATF 400G-6</option>
+            <option>Not sure &ndash; please advise</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="msg">Project Details</label>
+          <textarea id="msg" name="message" placeholder="Describe your lift — location, load weight, height, access restrictions, dates..."></textarea>
+        </div>
+        <button type="submit" class="btn-sub" id="sub-btn">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img src="Logos/Official_Chimes_Extended_Logo.png" alt="Chimes Crane Hire">
+        <p>Gauteng's trusted crane hire experts since 2003. Owner-managed and operator-led, with a modern Liebherr fleet ready for any lift.</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/ChimesCraneHire/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#fleet">Crane Fleet</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#about">Who We Are</a></li>
+          <li><a href="#contact">Get In Touch</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Mobile Crane Hire</a></li>
+          <li><a href="#services">Rigging Services</a></li>
+          <li><a href="#services">Heavy Lifting</a></li>
+          <li><a href="#services">Turnkey Projects</a></li>
+          <li><a href="#industries">Renewable Energy</a></li>
+        </ul>
+      </div>
+
+      <div class="ft-col">
+        <h5>Contact</h5>
+        <div class="ft-ci">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/>
+          </svg>
+          <span>+27 11 626 1110</span>
+        </div>
+        <div class="ft-ci">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+          <span>office@chimes.co.za</span>
+        </div>
+        <div class="ft-ci">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Nasmith Ave, Jupiter Industrial,<br>Germiston, Johannesburg</span>
+        </div>
+        <div class="ft-ci">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+          <span>+27 11 626 2267 (Fax)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ft-bot">
+      <p>&copy; 2026 Chimes Crane Hire (Pty) Ltd &middot; chimescranes.co.za &middot; All rights reserved.</p>
+      <div class="ft-vals">
+        <b>Loyalty</b> &middot; <b>Integrity</b> &middot; <b>Foresight</b> &middot; <b>Excellence</b>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header shadow on scroll
+  const hdr = document.getElementById('hdr');
+  window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 20));
+
+  // Mobile nav toggle
+  document.getElementById('hbg').addEventListener('click', () => {
+    document.getElementById('nav').classList.toggle('open');
+  });
+
+  // Fade-up on scroll
+  const fus = document.querySelectorAll('.fu');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const siblings = [...(e.target.parentElement?.children || [])];
+        const idx = siblings.indexOf(e.target);
+        setTimeout(() => e.target.classList.add('vis'), Math.max(0, idx) * 90);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fus.forEach(el => io.observe(el));
+
+  // Count-up for stats
+  function countUp(el, target) {
+    let v = 0;
+    const step = target / 60;
+    const t = setInterval(() => {
+      v = Math.min(v + step, target);
+      el.textContent = Math.floor(v) + '+';
+      if (v >= target) clearInterval(t);
+    }, 22);
+  }
+  const sio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const t = parseInt(e.target.dataset.to);
+        if (t) countUp(e.target, t);
+        sio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-n[data-to]').forEach(el => sio.observe(el));
+
+  // Form submit demo
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('sub-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Request Sent!';
+      btn.style.background = '#0d2040';
+      e.target.reset();
+      setTimeout(() => {
+        btn.textContent = 'Submit Request';
+        btn.disabled = false;
+        btn.style.background = '';
+      }, 3000);
+    }, 1200);
+  }
+</script>
+</body>
+</html>
